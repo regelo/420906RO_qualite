@@ -1,0 +1,33 @@
+package exemple;
+import java.util.ArrayList;
+public class Exemple {
+public static void main(String[] args) {
+final int n = 100;
+final int deux_cent = 1000;
+ArrayList<Integer> v_a = new ArrayList<Integer>();
+for (int i=0 ; i<n ; i++) {
+// Génère une valeur entière entre 0 et deux_cent (inclusivement).
+Integer v = (int)(Math.random()*(deux_cent+1));
+v_a.add(v);
+}
+// Affiche les valeurs.
+valeurs(v_a);
+// Déterminer et affiche le maximum.
+int m = calcul(v_a);
+System.out.println("Maximum = " + m);
+}
+private static void valeurs(ArrayList<Integer> t) {
+System.out.println("Les valeurs sont : ");
+for (int i=0 ; i<t.size() ; i++) {
+System.out.println("  Valeur #" + i + " : " + t.get(i));
+}
+}
+private static int calcul(ArrayList<Integer> v) {
+if (v.size()==0) return -1;
+int m = v.get(0);
+for (int i=1 ; i<v.size() ; i++) {
+if (m < v.get(i)) m = v.get(i);
+}
+return m;
+}
+}
